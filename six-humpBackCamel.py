@@ -1,7 +1,3 @@
-# f(x1 , x2) = (4 - 2,1(x1^2) + (x1^4)/3) * (x1^2) + x1*x2 + (-4 - 4*(x2^2)), -3<=x1<=3, -2<=x2<=2
-# -3 <= x1 <= 3
-# -2 <= x2 <= 2
-
 from random import randint, random, uniform, choice
 
 
