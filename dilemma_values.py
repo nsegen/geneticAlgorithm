@@ -3,8 +3,8 @@ from random import random
 
 class DilemmaValues:
 
-    cooperation = 'cooperation'
-    defence = 'defence'
+    cooperation = True
+    defence = False
 
     def __init__(self, c, d, C, D):
 
@@ -15,7 +15,7 @@ class DilemmaValues:
 
     def get_random_value(self):
 
-        return self.cooperation if random() < 0.5 else self.defence
+        return self.cooperation if random() <= 0.5 else self.defence
 
     def compare(self, a, b):
 
