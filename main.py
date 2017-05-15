@@ -52,22 +52,21 @@ for i in range(N):
     )
 
 what_we_need = (dilemma_values.cooperation, dilemma_values.defence)
+strategies = (
+    (dilemma_values.cooperation, dilemma_values.cooperation),
+    (dilemma_values.cooperation, dilemma_values.defence),
+    (dilemma_values.defence, dilemma_values.cooperation),
+    (dilemma_values.defence, dilemma_values.defence)
+)
 percentage = 0.95
 count_of_loops = 0
 
-with open('out', 'w+') as file:
-    file.writelines(str(population))
-    while population.count(what_we_need) / N < percentage:
-        count_of_loops += 1
-        childs = []
-        for individual in population:
-            pair = population[randint(0, len(population) - 1)]
-            childs += mix(individual, pair)
+while population.count(what_we_need) / N < percentage:
+    count_of_loops += 1
+    childs = []
+    for individual in population:
+        pair = population[randint(0, len(population) - 1)]
+        childs += mix(individual, pair)
 
-        population += childs
-
-        population = selection(population, N)
-        file.writelines('_____________________________________')
-        file.writelines(str(population))
-        file.writelines('_____________________________________')
-        print(population.count(what_we_need) / N, count_of_loops)
+    population += childs
+    population = selection(population, N)
